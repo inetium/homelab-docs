@@ -1,0 +1,89 @@
+/* Delikatne „networkowe” tło dla całej strony */
+:root {
+  /* Możesz się bawić tym kolorem jak chcesz */
+  --homelab-bg: radial-gradient(circle at top left,
+                               rgba(99, 102, 241, 0.08),
+                               transparent 60%),
+                radial-gradient(circle at bottom right,
+                               rgba(56, 189, 248, 0.08),
+                               transparent 60%),
+                linear-gradient(135deg,
+                               #0f172a 0%,
+                               #020617 40%,
+                               #020617 60%,
+                               #0f172a 100%);
+}
+
+/* Tło strony pod całą treścią */
+body {
+  background: var(--homelab-bg);
+}
+
+/* Kontent nadal na „karteczce” – żeby tekst był czytelny */
+.md-container,
+.md-main,
+.md-main__inner {
+  background: transparent;
+}
+
+.md-content {
+  background: rgba(15, 23, 42, 0.96); /* ciemna, ale półprzezroczysta karta */
+  border-radius: 12px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.6);
+  padding: 1.2rem;
+}
+
+/* W trybie jasnym zbyt ciemno – zróbmy jaśniejszą kartę */
+[data-md-color-scheme="default"] .md-content {
+  background: rgba(255, 255, 255, 0.96); /* prawie białe, ale z lekką mgiełką */
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+}
+
+/* Drobna „sieciowa” kratka nad tłem, bardzo subtelna */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+  z-index: -1;
+}
+
+/* Żeby tło wypełniało cały ekran, nawet gdy jest mało treści */
+html,
+body {
+  min-height: 100%;
+}
+
+/* Lekki „glassmorphism” dla top bara i nawigacji – bez psucia kolorów palety */
+
+/* Wspólny blur, ale bez narzucania koloru – niech Material decyduje */
+.md-header,
+.md-tabs {
+  backdrop-filter: blur(10px);
+}
+
+/* W ciemnym motywie trochę przyciemniamy tło (na bazie koloru palety) */
+[data-md-color-scheme="slate"] .md-header,
+[data-md-color-scheme="slate"] .md-tabs {
+  background-color: rgba(15, 23, 42, 0.9);
+}
+
+/* Opcjonalnie: lekko zaokrąglone karty w bocznym menu */
+.md-sidebar__scrollwrap {
+  background: transparent;
+}
+
+.md-sidebar__inner {
+  background: rgba(15, 23, 42, 0.85);
+  border-radius: 12px;
+  margin: 0.75rem;
+  padding: 0.5rem 0.25rem;
+}
+
+[data-md-color-scheme="default"] .md-sidebar__inner {
+  background: rgba(248, 250, 252, 0.92);
+}
