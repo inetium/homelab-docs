@@ -1,0 +1,51 @@
+- title: "Wprowadzenie"
+  url: "/"
+  children: []
+
+- title: "Sprzęt i system"
+  url: "/sprzet/"
+  children:
+    - title: "Raspberry Pi 5"
+      url: "/sprzet/raspberry-pi-5/"
+    - title: "ASUS MEET GQE10A"
+      url: "/sprzet/asus-meet-gqe10a/"
+
+- title: "Sieć"
+  url: "/siec/"
+  children:
+    - title: "Topologia"
+      url: "/siec/topologia/"
+    - title: "Router MT1"
+      url: "/siec/router-mt1/"
+    - title: "Router MT2"
+      url: "/siec/router-mt2/"
+    - title: "Router MT3"
+      url: "/siec/router-mt3/"
+    - title: "Gateway"
+      url: "/siec/gateway/"
+    - title: "SNMP"
+      url: "/siec/snmp/"
+    - title: "IPv6 Dual-Stack"
+      url: "/siec/dual-stack/"
+
+- title: "Usługi"
+  url: "/uslugi/"
+  children:
+    - title: "DNS"
+      url: "/uslugi/dns/"
+    - title: "Docker"
+      url: "/uslugi/docker/"
+    - title: "Gitea"
+      url: "/uslugi/gitea/"
+    - title: "Prometheus"
+      url: "/uslugi/prometheus/"
+    - title: "Grafana"
+      url: "/uslugi/grafana/"
+    - title: "Traefik"
+      url: "/uslugi/traefik/"
+
+- title: "Kopie zapasowe"
+  url: "/kopie-zapasowe/"
+  children:
+    - title: "Przegląd"
+      url: "/kopie-zapasowe/przeglad/"
