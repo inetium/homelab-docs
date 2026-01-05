@@ -2,33 +2,40 @@
 <html lang="pl">
   <head>
     <meta charset="utf-8">
-    <title>{{ page.title }} | {{ site.title }}</title>
+    <title>
+      {% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}
+    </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{ site.seo | default: "" }}
-    <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+
+    {% seo %}
+
+    <!-- Style modernist (GitHub Pages zaciągnie je sam) -->
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          {% for item in site.data.navigation %}
-            <li>
-              <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-              {% if item.children and item.children.size > 0 %}
-                <ul>
-                  {% for child in item.children %}
-                    <li><a href="{{ child.url | relative_url }}">{{ child.title }}</a></li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
-            </li>
-          {% endfor %}
-        </ul>
-      </nav>
-    </header>
+    <div class="wrapper">
+      <header>
+        <h1><a href="{{ "/" | relative_url }}">{{ site.title }}</a></h1>
+        <p>{{ site.description }}</p>
 
-    <main>
-      {{ content }}
-    </main>
+        <nav>
+          <ul>
+            {% for item in site.data.navigation %}
+              <li>
+                <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </header>
+
+      <section>
+        {{ content }}
+      </section>
+
+      <footer>
+        <p>© {{ site.time | date: "%Y" }} – Homelab Docs</p>
+      </footer>
+    </div>
   </body>
 </html>
